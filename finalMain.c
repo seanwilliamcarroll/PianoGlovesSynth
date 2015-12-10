@@ -96,8 +96,8 @@ volatile int spi_clk_div = 2; // 20 MHz max speed for this DAC
 #define E3                          2
 #define F3                          3
 #define G3                          4
-#define A4                          5
-#define B4                          6
+#define A3                          5
+#define B3                          6
 #define C4                          7
 #define D4                          8
 #define E4                          9
@@ -517,23 +517,23 @@ static PT_THREAD(protothread_music(struct pt *pt)) {
         Keys[E3]->key_pressed = 0;
     }
     for (music_i = 0; music_i < 4; music_i++){
-        hitKey(Keys[B4]);
+        hitKey(Keys[B3]);
         hitKey(Keys[D3]);
         PT_YIELD_TIME_msec(TIME_BETWEEN);
-        Keys[B4]->key_pressed = 0;
+        Keys[B3]->key_pressed = 0;
         Keys[D3]->key_pressed = 0;
     }
 
-    hitKey(Keys[A4]);
+    hitKey(Keys[A3]);
     hitKey(Keys[E3]);
     PT_YIELD_TIME_msec(TIME_BETWEEN);
-    Keys[A4]->key_pressed = 0;
+    Keys[A3]->key_pressed = 0;
     Keys[E3]->key_pressed = 0;
 
-    hitKey(Keys[B4]);
+    hitKey(Keys[B3]);
     hitKey(Keys[D3]);
     PT_YIELD_TIME_msec(TIME_BETWEEN);
-    Keys[B4]->key_pressed = 0;
+    Keys[B3]->key_pressed = 0;
     Keys[D3]->key_pressed = 0;
 
     for (music_i = 0; music_i < 4; music_i++){
@@ -544,16 +544,16 @@ static PT_THREAD(protothread_music(struct pt *pt)) {
         Keys[C4]->key_pressed = 0;
     }
     
-    hitKey(Keys[B4]);
+    hitKey(Keys[B3]);
     hitKey(Keys[D3]);
     PT_YIELD_TIME_msec(TIME_BETWEEN);
-    Keys[B4]->key_pressed = 0;
+    Keys[B3]->key_pressed = 0;
     Keys[D3]->key_pressed = 0;
 
-    hitKey(Keys[A4]);
+    hitKey(Keys[A3]);
     hitKey(Keys[E3]);
     PT_YIELD_TIME_msec(TIME_BETWEEN);
-    Keys[A4]->key_pressed = 0;
+    Keys[A3]->key_pressed = 0;
     Keys[E3]->key_pressed = 0;
 
 #endif
@@ -703,19 +703,19 @@ static PT_THREAD(protothread_music(struct pt *pt)) {
     }
     if ((keys_pressed & BIT_3) && !(last_keys_pressed & BIT_3)){
         //key was just pressed
-        hitKey(Keys[A4]);
+        hitKey(Keys[A3]);
     }
     else if (!(keys_pressed & BIT_3) && (last_keys_pressed & BIT_3)){
         //key released
-        Keys[A4]->key_pressed = 0;
+        Keys[A3]->key_pressed = 0;
     }
     if ((keys_pressed & BIT_13) && !(last_keys_pressed & BIT_13)){
         //key was just pressed
-        hitKey(Keys[B4]);
+        hitKey(Keys[B3]);
     }
     else if (!(keys_pressed & BIT_13) && (last_keys_pressed & BIT_13)){
         //key released
-        Keys[B4]->key_pressed = 0;
+        Keys[B3]->key_pressed = 0;
     }
     if ((keys_pressed & BIT_4) && !(last_keys_pressed & BIT_4)){
         //key was just pressed
@@ -776,8 +776,8 @@ void main(void) {
   Keys[E3] = initKey(67,              .300,       .300,         .300         );
   Keys[F3] = initKey(64,              .975,       .975,         .975         );
   Keys[G3] = initKey(57,              .975,       .975,         .975         );
-  Keys[A4] = initKey(51,              .975,       .975,         .975         );
-  Keys[B4] = initKey(45,              .500,       .500,         .500         );
+  Keys[A3] = initKey(51,              .975,       .975,         .975         );
+  Keys[B3] = initKey(45,              .500,       .500,         .500         );
   Keys[C4] = initKey(42,              .200,       .200,         .200         );
   Keys[D4] = initKey(38,              .775,       .775,         .775         );
   Keys[E4] = initKey(34,              .675,       .675,         .675         );
